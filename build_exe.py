@@ -10,14 +10,36 @@ import subprocess
 import shutil
 
 def check_pyinstaller():
-    """Check if PyInstaller is installed"""
+    """Check if PyInstaller and Windows dependencies are installed"""
+    missing_packages = []
+    
     try:
         import PyInstaller
-        return True
     except ImportError:
-        print("PyInstaller not found. Installing...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "pyinstaller"])
-        return True
+        missing_packages.append("pyinstaller")
+    
+    try:
+        import win32api
+    except ImportError:
+        missing_packages.append("pywin32")
+    
+    try:
+        import win32ctypes
+    except ImportError:
+        missing_packages.append("pywin32-ctypes")
+    
+    if missing_packages:
+        print(f"Missing packages: {', '.join(missing_packages)}")
+        print("Installing required packages...")
+        for package in missing_packages:
+            try:
+                subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+            except subprocess.CalledProcessError:
+                print(f"Failed to install {package}. Please install manually:")
+                print(f"pip install {package}")
+                return False
+    
+    return True
 
 def create_icon():
     """Create a simple icon file if Pillow is available"""

@@ -1,10 +1,15 @@
 # Requirements for Gmail Autocomplete Builder
 
-# Core requirement for building Windows executables
+# Core requirement for building executables
 pyinstaller>=6.0.0
+
+# Windows-specific dependencies (required for .exe building)
+pywin32-ctypes>=0.2.0
+pywin32>=306
 
 # Optional: For creating custom icons
 # Pillow>=10.0.0
 
 # Note: The main scripts use only Python standard library
 # No additional dependencies needed for running the scripts themselves
+# Windows dependencies are only needed for building executables

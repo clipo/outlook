@@ -99,9 +99,16 @@ python gmail_autocomplete_builder.py your.email@gmail.com --password APP_PASSWOR
 ### Windows (.exe)
 
 ```bash
-pip install pyinstaller
+# Install dependencies
+pip install pyinstaller pywin32-ctypes pywin32
+
+# Build executables
 python build_exe.py
 ```
+
+**Common Windows Issues:**
+- If you get `pathlib` errors: `conda remove pathlib`
+- If you get `pywintypes` errors: `pip install pywin32-ctypes pywin32`
 
 Creates:
 - `GmailAutocomplete.exe` - Windows GUI application

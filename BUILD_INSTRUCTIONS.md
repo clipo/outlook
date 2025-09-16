@@ -19,11 +19,20 @@ This creates a `GmailAutocomplete_Windows` folder with:
 
 ## Manual Build Instructions
 
-### 1. Install PyInstaller
+### 1. Install PyInstaller and Windows Dependencies
 
 ```bash
+# Install PyInstaller
 pip install pyinstaller
+
+# Install Windows-specific dependencies
+pip install pywin32-ctypes pywin32
+
+# Or install everything at once
+pip install pyinstaller pywin32-ctypes pywin32
 ```
+
+**Note:** Windows requires additional packages that may not be installed by default in Anaconda environments.
 
 ### 2. Build GUI Version (Recommended)
 
@@ -81,6 +90,18 @@ The executable will be ~10-15 MB because it includes:
 
 ## Troubleshooting
 
+### "Could not import `pywintypes` or `win32api`"
+```bash
+pip install pywin32-ctypes pywin32
+```
+
+### "The 'pathlib' package is an obsolete backport"
+```bash
+conda remove pathlib
+# or
+pip uninstall pathlib
+```
+
 ### "Failed to execute script"
 - Make sure all import statements work when running the Python script normally
 - Check that the script runs without errors: `python gmail_autocomplete_gui.py`
@@ -93,6 +114,15 @@ The executable will be ~10-15 MB because it includes:
 ### Missing DLL errors
 - Run on the same Windows version you built on
 - Or use `--onefile` flag to include everything
+
+### Build fails in Anaconda environment
+Create a clean virtual environment:
+```bash
+python -m venv build_env
+build_env\Scripts\activate
+pip install pyinstaller pywin32-ctypes pywin32
+python build_exe.py
+```
 
 ## Alternative: py2exe
 
