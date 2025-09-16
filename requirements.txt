@@ -1,0 +1,10 @@
+# Requirements for Gmail Autocomplete Builder
+
+# Core requirement for building Windows executables
+pyinstaller>=6.0.0
+
+# Optional: For creating custom icons
+# Pillow>=10.0.0
+
+# Note: The main scripts use only Python standard library
+# No additional dependencies needed for running the scripts themselves
