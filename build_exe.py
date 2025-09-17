@@ -201,7 +201,7 @@ The tool will:
 4. Show instructions for importing into Outlook
 
 After running, import the CSV file into Outlook:
-- File → Open & Export → Import/Export
+- File -> Open & Export -> Import/Export
 - Choose "Import from another program or file"
 - Select "Comma Separated Values"
 - Browse to the CSV file created
@@ -210,7 +210,7 @@ After running, import the CSV file into Outlook:
 Questions? See README.txt for detailed instructions.
 """
     
-    with open(os.path.join(output_dir, 'QUICK_START.txt'), 'w') as f:
+    with open(os.path.join(output_dir, 'QUICK_START.txt'), 'w', encoding='utf-8') as f:
         f.write(quickstart)
     
     print(f"✓ Distribution package created in '{output_dir}' folder")
