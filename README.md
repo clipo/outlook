@@ -109,6 +109,8 @@ python build_exe.py
 **Common Windows Issues:**
 - If you get `pathlib` errors: `conda remove pathlib`
 - If you get `pywintypes` errors: `pip install pywin32-ctypes pywin32`
+- If you get Unicode encoding errors: Use latest build script from GitHub
+- "Pillow not installed" warning: Safe to ignore (icons are optional)
 
 Creates:
 - `GmailAutocomplete.exe` - Windows GUI application

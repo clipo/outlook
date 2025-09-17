@@ -124,6 +124,18 @@ pip install pyinstaller pywin32-ctypes pywin32
 python build_exe.py
 ```
 
+### "UnicodeEncodeError: 'charmap' codec can't encode character"
+This happens when Windows can't encode Unicode characters. The build script has been updated to handle this, but if you see this error:
+- Make sure you're using the latest version of the build script from GitHub
+- Or manually edit any text files to use ASCII characters instead of Unicode symbols
+
+### Build succeeds but shows "Pillow not installed"
+This is just a warning - the build will complete successfully. To add custom icons:
+```bash
+pip install Pillow
+```
+Then run the build script again.
+
 ## Alternative: py2exe
 
 If PyInstaller doesn't work, try py2exe (Windows only):
