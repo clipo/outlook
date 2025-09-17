@@ -1,0 +1,26 @@
+Gmail to Outlook Autocomplete Builder
+======================================
+
+QUICK START:
+1. Double-click 'GmailAutocomplete.exe' for the GUI version
+   OR
+2. Double-click 'run_cli.bat' for the command-line version
+
+REQUIREMENTS:
+- Gmail account with IMAP enabled
+- Gmail App Password (get from https://myaccount.google.com/apppasswords)
+
+The tool will:
+1. Connect to your Gmail account
+2. Scan your sent messages
+3. Create a CSV file with all email addresses
+4. Show instructions for importing into Outlook
+
+After running, import the CSV file into Outlook:
+- File -> Open & Export -> Import/Export
+- Choose "Import from another program or file"
+- Select "Comma Separated Values"
+- Browse to the CSV file created
+- Import to Contacts folder
+
+Questions? See README.txt for detailed instructions.
